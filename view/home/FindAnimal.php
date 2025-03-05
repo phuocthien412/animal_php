@@ -1,18 +1,17 @@
 ﻿<!DOCTYPE html>
-<html lang="en">
+<html>
 <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
     <title>NEKOPARA</title>
     <!-- Favicon -->
-    <link rel="shortcut icon" type="image/x-icon" href="../design/Home/logo.png" />
-    
+    <link rel="shortcut icon" type="image/x-icon" href="/animal_php/view/design/Home/logo.png" />    
     <!-- Bootstrap CSS -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
     
     <!-- Custom CSS -->
-    <link rel="stylesheet" href="../css/mystyle.css" />
+    <link rel="stylesheet" href="/animal_php/css/mystyle.css" />
     
     <!-- Icons -->
     <link rel="stylesheet" href="https://unicons.iconscout.com/release/v4.0.0/css/line.css">
@@ -143,64 +142,12 @@
     </style>
 </head>
 <body>
-    <!-- Header Section -->
-    <header>
-        <nav class="navbar navbar-expand-sm navbar-toggleable-sm navbar-light border-bottom box-shadow mb-3" style="background-color:#F7F7F7;">
-            <div class="container-fluid" style="margin-left:100px">
-                <a class="navbar-brand" href="../index.php">
-                    <div class="logo">
-                        <img src="../design/Header/logo.png" width="120px" height="80px">
-                    </div>
-                </a>
-                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target=".navbar-collapse">
-                    <span class="navbar-toggler-icon"></span>
-                </button>
+<?php
+// filepath: /e:/laragon/www/animal_php/view/home/index.php
 
-                <div class="navbar-collapse collapse d-sm-inline-flex justify-content-between">
-                    <ul class="navbar-nav flex-grow-1">
-                        <li class="nav-item">
-                            <a class="textheader" href="../index.php">Trang chủ</a>
-                        </li>
-                        <li class="nav-item" style="margin-left:10px">
-                            <a class="textheader" href="../animal/view_animal.php">Động vật</a>
-                        </li>
-                        <li class="nav-item" style="margin-left:10px">
-                            <a class="textheader active" href="FindAnimal.html">Tìm kiếm bằng hình ảnh</a>
-                        </li>
-                        <li class="nav-item" style="margin-left:10px">
-                            <a class="textheader" href="../posts.php">Cộng đồng</a>
-                        </li>
-                    </ul>
-
-                    <!-- Login/Logout Section -->
-                    <ul class="navbar-nav ms-auto mb-2 mb-lg-0 align-items-center">
-                        <li class="nav-item d-flex align-items-center">
-                                <a class="btn btn-outline-primary" href="../login.php">Đăng nhập</a>
-                            <?php endif; ?>
-                        </li>
-                    </ul>
-                </div>
-
-                <!-- Search Box -->
-                <form action="../search.php" method="get" class="input-box" id="searchForm">
-                    <input 
-                        type="text" 
-                        name="searchQuery" 
-                        id="searchTerm" 
-                        placeholder="Bạn muốn tìm động vật gì?" 
-                        class="form-control"
-                    >
-                    <span class="icon">
-                        <button type="submit" class="search-btn">
-                            <i class="uil uil-search search-icon"></i>
-                        </button>
-                    </span>
-                    <i class="uil uil-times close-icon"></i>
-                </form>
-            </div>
-        </nav>
-    </header>
-
+// Include the header part of the layout
+include '../header.php';
+?>
     <!-- Main Content -->
     <section class="ClassAnimal">
         <img src="../design/ClassAnimal/Background/chim.gif" alt="Background" class="classbg" />
@@ -224,46 +171,12 @@
     </section>
 
     <!-- Footer -->
-    <footer>
-        <div class="row">
-            <div class="col-md-6">
-                <h1 class="textfooter" style="margin-left: 100px; margin-top: 30px;">CONTACT US!</h1>
-                <div class="row align-items-center" style="margin-left: 105px;">
-                    <div class="col-auto">
-                        <img src="../design/Footer/GmailLogo.png" alt="Gmail Logo">
-                    </div>
-                    <div class="col">
-                        <h1 class="textfooter" style="font-size: 35px;">nekopara@gmail.com</h1>
-                    </div>
-                </div>
-                <div class="row align-items-center" style="margin-left: 100px;">
-                    <div class="col-auto">
-                        <img src="../design/Footer/FBLogo.png" alt="Facebook Logo">
-                    </div>
-                    <div class="col">
-                        <h1 class="textfooter" style="font-size: 35px;">facebook.com/NEKOPARA</h1>
-                    </div>
-                </div>
-                <div class="row align-items-center" style="margin-left: 100px;">
-                    <div class="col">
-                        <h1 class="textfooter" style="font-size: 25px;">
-                            © 2025 All Rights Reserved | Nekopara.com
-                        </h1>
-                    </div>
-                </div>
-            </div>
-            <div class="col-md-6 text-md-end">
-                <div class="row">
-                    <div class="col-md-6">
-                        <img src="../design/Footer/wwflogo.png" alt="WWF Logo" style="margin-right: -50px; margin-bottom: -200px;">
-                    </div>
-                    <div class="col-md-6">
-                        <img src="../design/Footer/nekoparalogo.png" alt="Nekopara Logo">
-                    </div>
-                </div>
-            </div>
-        </div>
-    </footer>
+    <?php
+// filepath: /e:/laragon/www/animal_php/view/home/index.php
+
+// Include the header part of the layout
+include '../footer.php';
+?>
 
     <!-- Scripts -->
     <script src="https://cdn.jsdelivr.net/npm/@tensorflow/tfjs@latest/dist/tf.min.js"></script>

@@ -13,7 +13,7 @@
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
     
     <!-- Custom CSS -->
-    <link rel="stylesheet" href="../css/mystyle.css" />
+    <link rel="stylesheet" href="/animal_php/view/css/mystyle.css" />
     
     <!-- Icons -->
     <link rel="stylesheet" href="https://unicons.iconscout.com/release/v4.0.0/css/line.css">
@@ -91,7 +91,7 @@
         <div class="container-fluid" style="margin-left:100px">
             <a class="navbar-brand" href="../index.php">
                 <div class="logo">
-                    <img src="design/Header/logo.png" width="120px" height="80px">
+                    <img src="/animal_php/view/design/Header/logo.png" width="120px" height="80px">
                 </div>
             </a>
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target=".navbar-collapse" aria-controls="navbarSupportedContent"
@@ -103,7 +103,7 @@
                 <ul class="navbar-nav flex-grow-1">
                     <li class="nav-item">
                         <a class="textheader <?php echo (basename($_SERVER['PHP_SELF']) == 'index.php') ? 'active' : ''; ?>" 
-                           href="../index.php">Trang chủ</a>
+                           href="/animal_php/Home">Trang chủ</a>
                     </li>
                     <li class="nav-item" style="margin-left:10px">
                         <a class="textheader <?php echo (strpos($_SERVER['PHP_SELF'], 'animal/view_animal.php') !== false) ? 'active' : ''; ?>" 
@@ -111,7 +111,7 @@
                     </li>
                     <li class="nav-item" style="margin-left:10px">
                         <a class="textheader <?php echo (basename($_SERVER['PHP_SELF']) == 'findanimal.php') ? 'active' : ''; ?>" 
-                           href="home/FindAnimal.html">Tìm kiếm bằng hình ảnh</a>
+                           href="/animal_php/FindAnimal">Tìm kiếm bằng hình ảnh</a>
                     </li>
                     <li class="nav-item" style="margin-left:10px">
                         <a class="textheader <?php echo (basename($_SERVER['PHP_SELF']) == 'posts.php') ? 'active' : ''; ?>" 
@@ -169,60 +169,4 @@
         </div>
     </nav>
 </header>
-<div>
-    <section>
-        <!-- Nội dung cụ thể của từng trang sẽ được đặt tại đây -->
-    </section>
-</div>
-
-<footer>
-    <div class="row">
-        <div class="col-md-6">
-            <h1 class="textfooter" style="margin-left: 100px; margin-top: 30px;">CONTACT US!</h1>
-            <div class="row align-items-center" style="margin-left: 105px;">
-                <div class="col-auto">
-                    <img src="design/Footer/GmailLogo.png" alt="Gmail Logo">
-                </div>
-                <div class="col">
-                    <h1 class="textfooter" style="font-size: 35px;">nekopara@gmail.com</h1>
-                </div>
-            </div>
-            <div class="row align-items-center" style="margin-left: 100px;">
-                <div class="col-auto">
-                    <img src="design/Footer/FBLogo.png" alt="Gmail Logo" />
-                </div>
-                <div class="col">
-                    <h1 class="textfooter" style="font-size: 35px;">facebook.com/NEKOPARA</h1>
-                </div>
-            </div>
-            <div class="row align-items-center" style="margin-left: 100px;">
-                <div class="col">
-                    <h1 class="textfooter" style="font-size: 25px;">
-                        © 2025 All Rights Reserved | Nekopara.com
-                    </h1>
-                </div>
-            </div>
-        </div>
-        <div class="col-md-6 text-md-end">
-            <div class="row">
-                <div class="col-md-6">
-                    <img src="design/Footer/wwflogo.png" alt="Logo" style="margin-right: -50px; margin-bottom: -200px;">
-                </div>
-                <div class="col-md-6">
-                    <img src="design/Footer/nekoparalogo.png" alt="Logo">
-                </div>
-            </div>
-        </div>
-    </div>
-</footer>
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
-<script>
-    let inputBox = document.querySelector(".input-box"),
-        searchIcon = document.querySelector(".icon"),
-        closeIcon = document.querySelector(".close-icon");
-    searchIcon.addEventListener("click", () => inputBox.classList.add("open"));
-    closeIcon.addEventListener("click", () => inputBox.classList.remove("open"));
-</script>
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
-</body>
 </html>

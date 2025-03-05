@@ -1,20 +1,17 @@
 <!DOCTYPE html>
-<html xmlns:th="http://www.thymeleaf.org"
-      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
-      layout:decorate="~{layout}">
+<html>
 <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
     <title>NEKOPARA</title>
     <!-- Favicon -->
-    <link rel="shortcut icon" type="image/x-icon" href="../design/Home/logo.png" />
-    
+    <link rel="shortcut icon" type="image/x-icon" href="/animal_php/view/design/Home/logo.png" />    
     <!-- Bootstrap CSS -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
     
     <!-- Custom CSS -->
-    <link rel="stylesheet" href="../css/mystyle.css" />
+    <link rel="stylesheet" href="/animal_php/css/mystyle.css" />
     
     <!-- Icons -->
     <link rel="stylesheet" href="https://unicons.iconscout.com/release/v4.0.0/css/line.css">
@@ -57,6 +54,12 @@
 </head>
 
 <body>
+<?php
+// filepath: /e:/laragon/www/animal_php/view/home/index.php
+
+// Include the header part of the layout
+include '../header.php';
+?>
 <section layout:fragment="content" style="padding: 0;">
 
     <nav class="sticky-top" style="margin-top: -20px;">
@@ -69,14 +72,14 @@
     </nav>
 
     <section id="home" class="home" style="margin-top: -100px;">
-        <img src="/design/Home/logo.png" class="logo1"/>
+        <img src="/animal_php/view/design/Home/logo.png" class="logo1"/>
         <h1 class="texthome"> Chào mừng bạn đến với cổng thông tin về các loài động vật của NEKOPARA! </h1>
     </section>
 
     <section id="about" class="about">
         <div class="row ">
             <div class="col-md-6">
-                <img src="/design/About/logo.png" alt="Image 1" style="margin-top: -100px;">
+                <img src="/animal_php/view/design/About/logo.png" alt="Image 1" style="margin-top: -100px;">
             </div>
             <div class="col-md-6 test1">
                 <h1 class="textabout" style="margin-left: -50px;">
@@ -110,8 +113,8 @@
             <div class="col-md-3">
                 <div class="container">
                     <a href="/classanimals/detail/1" class="card">
-                        <div class="front" style="background-image: url('/design/Explore/bosat.png');"></div>
-                        <div class="back" style="background-image: url('/design/Explore/bosat.png');">
+                        <div class="front" style="background-image: url('/animal_php/view/design/Explore/bosat.png');"></div>
+                        <div class="back" style="background-image: url('/animal_php/view/design/Explore/bosat.png');">
                             <h1 class="textexplore">Động vật bò sát</h1>
                         </div>
                     </a>
@@ -120,8 +123,8 @@
             <div class="col-md-3">
                 <div class="container" style="margin-left:-50px;">
                     <a href="/classanimals/detail/2" class="card">
-                        <div class="front" style="background-image: url('/design/Explore/ca.png');"></div>
-                        <div class="back" style="background-image: url('/design/Explore/ca.png');">
+                        <div class="front" style="background-image: url('/animal_php/view/design/Explore/ca.png');"></div>
+                        <div class="back" style="background-image: url('/animal_php/view/design/Explore/ca.png');">
                             <h1 class="textexplore">Cá</h1>
                         </div>
                     </a>
@@ -130,8 +133,8 @@
             <div class="col-md-3">
                 <div class="container" style="margin-left:-200px;">
                     <a href="/classanimals/detail/3" class="card">
-                        <div class="front" style="background-image: url('/design/Explore/chim.png');"></div>
-                        <div class="back" style="background-image: url('/design/Explore/chim.png');">
+                        <div class="front" style="background-image: url('/animal_php/view/design/Explore/chim.png');"></div>
+                        <div class="back" style="background-image: url('/animal_php/view/design/Explore/chim.png');">
                             <h1 class="textexplore">Chim</h1>
                         </div>
                     </a>
@@ -142,8 +145,8 @@
             <div class="col-md-3">
                 <div class="container">
                     <a href="/classanimals/detail/4" class="card">
-                        <div class="front" style="background-image: url('/design/Explore/dongvatcovu.png');"></div>
-                        <div class="back" style="background-image: url('/design/Explore/dongvatcovu.png');">
+                        <div class="front" style="background-image: url('/animal_php/view/design/Explore/dongvatcovu.png');"></div>
+                        <div class="back" style="background-image: url('/animal_php/view/design/Explore/dongvatcovu.png');">
                             <h1 class="textexplore">Động vật có vú</h1>
                         </div>
                     </a>
@@ -152,8 +155,8 @@
             <div class="col-md-3">
                 <div class="container" style="margin-left:-50px;">
                     <a href="/classanimals/detail/5" class="card">
-                        <div class="front" style="background-image: url('/design/Explore/khongxuongsong.png');"></div>
-                        <div class="back" style="background-image: url('/design/Explore/khongxuongsong.png');">
+                        <div class="front" style="background-image: url('/animal_php/view/design/Explore/khongxuongsong.png');"></div>
+                        <div class="back" style="background-image: url('/animal_php/view/design/Explore/khongxuongsong.png');">
                             <h1 class="textexplore">Động vật không xương sống</h1>
                         </div>
                     </a>
@@ -162,8 +165,8 @@
             <div class="col-md-3">
                 <div class="container" style="margin-left:-200px;">
                     <a href="/classanimals/detail/6" class="card">
-                        <div class="front" style="background-image: url('/design/Explore/luongcu.png');"></div>
-                        <div class="back" style="background-image: url('/design/Explore/luongcu.png');">
+                        <div class="front" style="background-image: url('/animal_php/view/design/Explore/luongcu.png');"></div>
+                        <div class="back" style="background-image: url('/animal_php/view/design/Explore/luongcu.png');">
 
                             <h1 class="textexplore">Động vật lưỡng cư</h1>
 
@@ -172,7 +175,7 @@
                 </div>
             </div>
             <div class="col-md-3">
-                <img src="/design/About/logo.png" alt="Image 1" style="margin-left: -400px;">
+                <img src="/animal_php/view/design/About/logo.png" alt="Image 1" style="margin-left: -400px;">
             </div>
         </div>
     </section>
@@ -230,7 +233,7 @@
 
     <script src="https://cdnjs.cloudflare.com/ajax/libs/intro.js/7.2.0/intro.min.js"></script>
     <div class="static-button" id="startIntro" style="margin-right: -100px">
-        <img src="/images/idle.gif" alt="Start Intro"
+        <img src="/animal_php/images/idle.gif" alt="Start Intro"
              style="max-width: 100%; max-height: 250px; height: auto; width: auto;">
         <div class="click-me"
              style="color: white; text-shadow: 1px 1px 0 black, -1px -1px 0 black, -1px 1px 0 black, 1px -1px 0 black;  font-size: 30px;">
@@ -247,7 +250,7 @@
             introJs().setOptions({
                 steps: [
                     {
-                        element: document.querySelector('#someElement0'),
+                        element: document.querySelector('.logo1'),
                         intro: `
                         <div style="display: flex; align-items: center; text-align: left;">
                             <div style="flex: 1; padding: 10px;height: auto;min-width: 500px;margin-left: -200px" >
@@ -256,13 +259,13 @@
                                 </p>
                             </div>
                             <div style="flex: 1;">
-                            <img src="/images/trailer1.gif" alt="Description of Image" style="height: 500px; width: 500px; object-fit: cover;margin-left: -180px" >
+                            <img src="/animal_php/view/images/trailer1.gif" alt="Description of Image" style="height: 500px; width: 500px; object-fit: cover;margin-left: -180px" >
                             </div>
                         </div>
                     `
                     },
                     {
-                        element: document.querySelector('#someElement2'),
+                        element: document.querySelector('.test1'),
                         intro: `
                         <div style="display: flex; align-items: center; text-align: left;">
                             <div style="flex: 1; padding: 10px;height: auto;min-width: 500px;margin-left: -200px" >
@@ -271,7 +274,7 @@
                                 </p>
                             </div>
                             <div style="flex: 1;">
-                            <img src="/images/trailer2.png" alt="Description of Image" style="height: 500px; width: 500px; object-fit: cover;margin-left: -180px" >
+                            <img src="/animal_php/view/images/trailer2.png" alt="Description of Image" style="height: 500px; width: 500px; object-fit: cover;margin-left: -180px" >
                             </div>
                         </div>
                     `
@@ -353,12 +356,17 @@
                 // Check if the current step is the last step
                 if (targetElement === document.querySelector('.front')) {
                     localStorage.setItem('introCompleted', 'true');
-                    window.location.href = 'http://localhost:8080/classanimals/detail/1';
+                    window.location.href = '';
                 }
             }).start();
         };
     </script>
-
 </section>
+<?php
+// filepath: /e:/laragon/www/animal_php/view/home/index.php
+
+// Include the header part of the layout
+include '../footer.php';
+?>
 </body>
 </html>
