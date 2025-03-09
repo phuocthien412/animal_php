@@ -1,194 +1,67 @@
 ﻿<!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-    <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-
-    <title>NEKOPARA</title>
-    <!-- Favicon -->
-    <link rel="shortcut icon" type="image/x-icon" href="/animal_php/view/design/Home/logo.png" />    
-    <!-- Bootstrap CSS -->
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
-    
-    <!-- Custom CSS -->
-    <link rel="stylesheet" href="/animal_php/css/mystyle.css" />
-    
-    <!-- Icons -->
-    <link rel="stylesheet" href="https://unicons.iconscout.com/release/v4.0.0/css/line.css">
-    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link href='https://fonts.googleapis.com/css?family=Kanit' rel='stylesheet'>
+    <link rel="stylesheet" href="/animal_php/css/mystyle.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta2/css/all.min.css" integrity="sha512-YWzhKL2whUzgiheMoBFwW8CKV4qpHQAEuvilg9FAn5VJUDwKZZxkJNuGM4XkWuk94WCrrwslk8yWNGmY1EduTA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/intro.js/7.2.0/introjs.min.css">
-
     <style>
-        /* Copy styles từ layout.php */
-        .textheader {
-            color: #333;
-            text-decoration: none;
-            padding: 8px 15px;
-            border-radius: 20px;
-            transition: all 0.3s ease;
+        .introjs-tooltip {
+            background-color: transparent !important; /* Semi-transparent background */
+            border: none !important; /* Remove border */
+            box-shadow: none !important; /* Remove shadow */
+            padding: 5px; /* Minimal padding to keep it close */
+            width: max-content;
+            height: max-content;
         }
 
-        .textheader:hover {
-            background-color: #e9ecef;
-            color: #007bff;
-        }
 
-        .textheader.active {
-            background-color: #007bff;
-            color: white;
-        }
-
-        /* Navbar styles */
-        .navbar {
-            padding: 15px 0;
-            background-color: #F7F7F7 !important;
-        }
-
-        .navbar-brand img {
-            height: 80px;
-            width: auto;
-        }
-
-        /* Search box styles */
-        .input-box {
-            position: relative;
-            height: 40px;
-            max-width: 300px;
-            margin: 0 20px;
-            background: #fff;
-            border-radius: 25px;
-            box-shadow: 0 5px 10px rgba(0, 0, 0, 0.1);
-        }
-
-        .input-box input {
-            position: absolute;
-            height: 100%;
-            width: 100%;
-            border-radius: 25px;
-            background: #fff;
-            padding: 0 50px 0 20px;
-            border: none;
-            outline: none;
-        }
-
-        .input-box .icon {
-            position: absolute;
-            right: 15px;
-            top: 50%;
-            transform: translateY(-50%);
-            cursor: pointer;
-        }
-
-        /* FindAnimal specific styles */
-        .ClassAnimal {
-            position: relative;
-            min-height: 100vh;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-        }
-
-        .classbg {
-            position: absolute;
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-            z-index: -1;
-        }
-
-        .upload-section {
-            background: rgba(255, 255, 255, 0.9);
-            padding: 30px;
-            border-radius: 15px;
-            text-align: center;
-            max-width: 500px;
-            width: 90%;
-        }
-
+        /* Styles for the static image button */
         .static-button {
-            position: fixed;
-            bottom: 20px;
-            right: 20px;
-            cursor: pointer;
-            z-index: 1000;
+            position: fixed; /* Fixes the button in the viewport */
+            bottom: 20px; /* Distance from the bottom */
+            right: 20px; /* Change left to right for bottom right positioning */
+            cursor: pointer; /* Pointer cursor on hover */
+            z-index: 1000; /* Ensure it appears above other elements */
+            text-align: center; /* Center-align the text below the image */
         }
 
         .static-button img {
-            width: 300px;
-            height: 250px;
-            border-radius: 30%;
+            width: 60px; /* Set the desired width for the image */
+            height: auto; /* Maintain aspect ratio */
         }
 
         .click-me {
-            color: white;
-            font-size: 30px;
-            text-shadow: 2px 2px 4px rgba(0,0,0,0.5);
-        }
-
-        .search-btn {
-            background: transparent;
-            border: none;
-            padding: 0;
-            cursor: pointer;
-            transition: all 0.3s ease;
-            color: #007bff;
-        }
-
-        .search-btn:hover {
-            color: #0056b3;
-            transform: scale(1.1);
+            color: white; /* Text color */
+            font-size: 14px; /* Font size for "Click Me" */
+            margin-top: 5px; /* Space between image and text */
         }
     </style>
 </head>
 <body>
 <?php
-// filepath: /e:/laragon/www/animal_php/view/home/index.php
-
-// Include the header part of the layout
 include '../header.php';
 ?>
-    <!-- Main Content -->
-    <section class="ClassAnimal">
-        <img src="../design/ClassAnimal/Background/chim.gif" alt="Background" class="classbg" />
-        
-        <div class="upload-section">
-            <h2 class="mb-4">Tìm Kiếm Động Vật Bằng Hình Ảnh</h2>
-            <p class="mb-3">Tải lên hình ảnh động vật bạn muốn tìm kiếm thông tin</p>
-            
-            <input type="file" id="image-upload" class="form-control mb-3" accept="image/*">
-            <div id="image-container"></div>
-            <div id="label-container"></div>
-            <button type="button" onclick="predict()" class="btn btn-primary mt-3">
-                <i class="fas fa-search me-2"></i>Tìm Kiếm
-            </button>
-        </div>
+<section layout:fragment="content" style="padding: 0;">
+<section class="ClassAnimal">
+    <img src="/animal_php/view/design/ClassAnimal/Background/chim.gif" alt="Background vid" class="classbg" />
+    <h1 class="textclassanimalName" style="margin-top:-300px;margin-left: 200px;">Động vật </h1>
+    <h1 class="textclassanimalInfo" style="margin-left:300px;">Động vật là nhóm sinh vật trong tự nhiên bao gồm các hình thái sống đa dạng, chúng có thể được tìm thấy ở mọi môi trường sống trên Trái Đất, từ đại dương sâu tới rừng rậm, sa mạc khô cằn. Chúng đóng vai trò quan trọng trong hệ sinh thái, tham gia vào chu trình thực vật, giữ cân bằng hệ sinh thái.</h1>
+    <h1 class="textclassanimalInfo" style="margin-left:600px;margin-top:150px"> Vui lòng tải hình động vật mà bạn muốn tìm</h1>
 
-        <div class="static-button" id="startIntro">
-            <img src="../../images/idle.gif" alt="Trợ giúp">
-            <div class="click-me">Bạn cần trợ giúp?</div>
-        </div>
-    </section>
+    <input type="file" id="image-upload" class="fileup" accept="image/*" style="height:30px; width:500px;">
 
-    <!-- Footer -->
-    <?php
-// filepath: /e:/laragon/www/animal_php/view/home/index.php
-
-// Include the header part of the layout
-include '../footer.php';
-?>
-
-    <!-- Scripts -->
+    <div id="image-container" style="margin-top:30px;border-radius:20px;" ></div>
+    <div id="label-container"></div>
+    <button type="button" onclick="predict()" style="margin-top:30px;" class="btn btn-primary">Tìm Kiếm</button>
     <script src="https://cdn.jsdelivr.net/npm/@tensorflow/tfjs@latest/dist/tf.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/@teachablemachine/image@latest/dist/teachablemachine-image.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/intro.js/7.2.0/intro.min.js"></script>
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
-
-    <!-- Custom Scripts -->
     <script type="text/javascript">
-        // Model loading and prediction code
-        const URL = "../AnimalPredict/";
+        const URL = "/animal_php/AnimalPredict/";
+
         let model, imageContainer, labelContainer, maxPredictions;
 
         async function start() {
@@ -198,25 +71,142 @@ include '../footer.php';
             model = await tmImage.load(modelURL, metadataURL);
             maxPredictions = model.getTotalClasses();
 
-            imageContainer = document.getElementById("image-container");
-            labelContainer = document.getElementById("label-container");
-
             const imageUpload = document.getElementById("image-upload");
             imageUpload.addEventListener("change", onImageUpload);
+
+            imageContainer = document.getElementById("image-container");
+            labelContainer = document.getElementById("label-container");
         }
 
-        // ... rest of your JavaScript code ...
+        function onImageUpload(event) {
+            const file = event.target.files[0];
+            const reader = new FileReader();
+            reader.onload = function (e) {
+                const image = document.createElement("img");
+                image.src = e.target.result;
+                imageContainer.innerHTML = "";
+                imageContainer.appendChild(image);
+            };
+            reader.readAsDataURL(file);
+        }
 
-        // Search box functionality
-        let inputBox = document.querySelector(".input-box"),
-            searchIcon = document.querySelector(".icon"),
-            closeIcon = document.querySelector(".close-icon");
-        
-        searchIcon.addEventListener("click", () => inputBox.classList.add("open"));
-        closeIcon.addEventListener("click", () => inputBox.classList.remove("open"));
+        async function predict() {
+            const image = document.querySelector("#image-container img");
+            if (!image) {
+                alert("Vui lòng tải hình ảnh");
+                return;
+            }
 
-        // Initialize
+            const predictions = await model.predict(image);
+            const topPredictions = getTopPredictions(predictions, 5);
+
+            let searchTerm = '';
+            if (topPredictions[0].probability >= 0.8) {
+                searchTerm = topPredictions[0].className;
+            } else {
+                searchTerm = "Unknown";
+            }
+
+            $('#searchTerm').val(searchTerm);
+            $('#searchForm').unbind('submit').submit();
+
+            // Save top predictions to local storage with keys "animal" and "score"
+            const formattedPredictions = topPredictions.map(pred => ({
+                animal: pred.className,
+                score: (pred.probability * 100).toFixed(2) // Convert to percentage
+            }));
+
+            localStorage.setItem('animalPredictions', JSON.stringify(formattedPredictions));
+        }
+
+        function getTopPredictions(predictions, topN) {
+            // Sort predictions by probability in descending order
+            predictions.sort((a, b) => b.probability - a.probability);
+            return predictions.slice(0, topN); // Get top N predictions
+        }
+
         start();
     </script>
+    <script src="~/js/script.js"></script>
+    <div class="static-button" id="startIntro" style="margin-right: -100px">
+        <img src="/animal_php/images/idle.gif" alt="Start Intro"
+             style="max-width: 100%; max-height: 250px; height: auto; width: auto;">
+        <div class="click-me"
+             style="color: white; text-shadow: 1px 1px 0 black, -1px -1px 0 black, -1px 1px 0 black, 1px -1px 0 black;  font-size: 30px;">
+            Bạn cần trợ giúp ?
+        </div>
+    </div>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/intro.js/7.2.0/intro.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
+    <script type="text/javascript">
+        // Your existing JavaScript code
+
+        // Trigger Intro.js when the image is clicked
+        document.getElementById('startIntro').onclick = function () {
+            introJs().setOptions({
+                steps: [
+                    {
+                        element: document.querySelector('#someElement0'),
+                        intro: `
+                        <div style="display: flex; align-items: center; text-align: left;">
+                            <div style="flex: 1; padding: 10px;height: auto;min-width: 500px;margin-left: -200px" >
+                                <p style="color: white; text-shadow: 1px 1px 0 black, -1px -1px 0 black, -1px 1px 0 black, 1px -1px 0 black;  font-size: 30px;" >
+                                    Đây là chức năng tìm kiếm động vật bằng hình ảnh.
+                                </p>
+                            </div>
+                            <div style="flex: 1;">
+                            <img src="/images/test.png" alt="Description of Image" style="height: 500px; width: 500px; object-fit: cover;margin-left: -180px" >
+                            </div>
+                        </div>
+                    `
+                    },
+                    {
+                        element: document.querySelector('.fileup'),
+                        intro: `
+                                 <p style="color: white; text-shadow: 1px 1px 0 black, -1px -1px 0 black, -1px 1px 0 black, 1px -1px 0 black;  font-size: 30px;" >
+                                    Tải ảnh con vật bạn muốn tìm kiếm
+                                </p>
+                `,
+                        position: 'bottom' // Position tooltip directly below the text
+                    },
+                    {
+                        element: document.querySelector('.fileup'),
+                        intro: `
+                                 <p style="color: white; text-shadow: 1px 1px 0 black, -1px -1px 0 black, -1px 1px 0 black, 1px -1px 0 black;  font-size: 30px;" >
+                                    Chờ cho đế khi hình ảnh hiển thị
+                                </p>
+                `,
+                        position: 'bottom' // Position tooltip directly below the text
+                    },
+                    {
+                        element: document.querySelector('.button'),
+                        intro: `
+                                 <p style="color: white; text-shadow: 1px 1px 0 black, -1px -1px 0 black, -1px 1px 0 black, 1px -1px 0 black;  font-size: 30px;" >
+                                    Sau đó bấm tìm kiếm.
+                                </p>
+                `,
+                        position: 'bottom' // Position tooltip directly below the text
+                    },
+                    {
+                        element: document.querySelector('.button'),
+                        intro: `
+                                 <p style="color: white; text-shadow: 1px 1px 0 black, -1px -1px 0 black, -1px 1px 0 black, 1px -1px 0 black;  font-size: 30px;" >
+                                    Hệ thống sẽ quét ảnh và tìm con vật bạn cần.
+                                </p>
+                `,
+                        position: 'bottom' // Position tooltip directly below the text
+                    },
+
+                ],
+                tooltipPosition: 'bottom', // Default position for tooltips
+                positionPrecedence: ['bottom', 'top', 'left', 'right'] // Order of positioning
+            }).start();
+        };
+    </script>
+</section>
+</section>
+<?php
+include '../footer.php';
+?>
 </body>
 </html>

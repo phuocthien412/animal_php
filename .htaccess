@@ -7,3 +7,4 @@ RewriteCond %{REQUEST_FILENAME} !-d
 # Chuyển hướng từ /animal_php/home đến /animal_php/view/home/index.php
 RewriteRule ^Home$ view/home/index.php [L]
 RewriteRule ^FindAnimal$ view/home/FindAnimal.php [L]
+RewriteRule ^ClassAnimal$ view/classanimal/list_classanimals.php [L]

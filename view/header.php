@@ -11,10 +11,6 @@
     
     <!-- Bootstrap CSS -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
-    
-    <!-- Custom CSS -->
-    <link rel="stylesheet" href="/animal_php/view/css/mystyle.css" />
-    
     <!-- Icons -->
     <link rel="stylesheet" href="https://unicons.iconscout.com/release/v4.0.0/css/line.css">
     <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
@@ -106,8 +102,8 @@
                            href="/animal_php/Home">Trang chủ</a>
                     </li>
                     <li class="nav-item" style="margin-left:10px">
-                        <a class="textheader <?php echo (strpos($_SERVER['PHP_SELF'], 'animal/view_animal.php') !== false) ? 'active' : ''; ?>" 
-                           href="animal/view_animal.php">Động vật</a>
+                        <a class="textheader <?php echo (strpos($_SERVER['PHP_SELF'], 'list_classanimals.php') !== false) ? 'active' : ''; ?>" 
+                           href="/animal_php/ClassAnimal">Các Lớp động vật</a>
                     </li>
                     <li class="nav-item" style="margin-left:10px">
                         <a class="textheader <?php echo (basename($_SERVER['PHP_SELF']) == 'findanimal.php') ? 'active' : ''; ?>" 

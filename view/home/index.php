@@ -1,22 +1,12 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-    <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-
-    <title>NEKOPARA</title>
-    <!-- Favicon -->
-    <link rel="shortcut icon" type="image/x-icon" href="/animal_php/view/design/Home/logo.png" />    
-    <!-- Bootstrap CSS -->
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
-    
-    <!-- Custom CSS -->
-    <link rel="stylesheet" href="/animal_php/css/mystyle.css" />
-    
-    <!-- Icons -->
-    <link rel="stylesheet" href="https://unicons.iconscout.com/release/v4.0.0/css/line.css">
-    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link href='https://fonts.googleapis.com/css?family=Kanit' rel='stylesheet'>
+    <link rel="stylesheet" href="/animal_php//css/mystyle.css" asp-append-version="true"/>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/intro.js/7.2.0/introjs.min.css">
     <style>
         .introjs-tooltip {
             background-color: transparent !important; /* Semi-transparent background */
@@ -39,25 +29,20 @@
         }
 
         .static-button img {
-            width: 120px; /* Set the desired width for the image */
-            height: 120px; /* Set the desired height for the image */
-            border-radius: 50%; /* Make the image circular */
-            box-shadow: 0 2px 10px rgba(0,0,0,0.2); /* Add a subtle shadow */
+            width: 60px; /* Set the desired width for the image */
+            height: auto; /* Maintain aspect ratio */
         }
 
         .click-me {
             color: white; /* Text color */
-            font-size: 30px; /* Font size for "Click Me" */
-            text-shadow: 2px 2px 4px rgba(0,0,0,0.5); /* Add a subtle text shadow */
+            font-size: 14px; /* Font size for "Click Me" */
+            margin-top: 5px; /* Space between image and text */
         }
     </style>
 </head>
 
 <body>
 <?php
-// filepath: /e:/laragon/www/animal_php/view/home/index.php
-
-// Include the header part of the layout
 include '../header.php';
 ?>
 <section layout:fragment="content" style="padding: 0;">
@@ -250,7 +235,7 @@ include '../header.php';
             introJs().setOptions({
                 steps: [
                     {
-                        element: document.querySelector('.logo1'),
+                        element: document.querySelector('#someElement0'),
                         intro: `
                         <div style="display: flex; align-items: center; text-align: left;">
                             <div style="flex: 1; padding: 10px;height: auto;min-width: 500px;margin-left: -200px" >
@@ -259,13 +244,13 @@ include '../header.php';
                                 </p>
                             </div>
                             <div style="flex: 1;">
-                            <img src="/animal_php/view/images/trailer1.gif" alt="Description of Image" style="height: 500px; width: 500px; object-fit: cover;margin-left: -180px" >
+                            <img src="/animal_php/images/trailer1.gif" alt="Description of Image" style="height: 500px; width: 500px; object-fit: cover;margin-left: -180px" >
                             </div>
                         </div>
                     `
                     },
                     {
-                        element: document.querySelector('.test1'),
+                        element: document.querySelector('#someElement2'),
                         intro: `
                         <div style="display: flex; align-items: center; text-align: left;">
                             <div style="flex: 1; padding: 10px;height: auto;min-width: 500px;margin-left: -200px" >
@@ -274,7 +259,7 @@ include '../header.php';
                                 </p>
                             </div>
                             <div style="flex: 1;">
-                            <img src="/animal_php/view/images/trailer2.png" alt="Description of Image" style="height: 500px; width: 500px; object-fit: cover;margin-left: -180px" >
+                            <img src="/animal_php/images/trailer2.png" alt="Description of Image" style="height: 500px; width: 500px; object-fit: cover;margin-left: -180px" >
                             </div>
                         </div>
                     `
@@ -356,16 +341,14 @@ include '../header.php';
                 // Check if the current step is the last step
                 if (targetElement === document.querySelector('.front')) {
                     localStorage.setItem('introCompleted', 'true');
-                    window.location.href = '';
+                    window.location.href = 'http://localhost:8080/classanimals/detail/1';
                 }
             }).start();
         };
     </script>
+
 </section>
 <?php
-// filepath: /e:/laragon/www/animal_php/view/home/index.php
-
-// Include the header part of the layout
 include '../footer.php';
 ?>
 </body>
