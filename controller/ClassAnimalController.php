@@ -1,4 +1,5 @@
 <?php
+// filepath: e:\laragon\www\animal_php\controller\ClassAnimalController.php
 require_once __DIR__ . '/../config/config.php';
 require_once __DIR__ . '/../model/ClassAnimal.php';
 
@@ -31,6 +32,14 @@ class ClassAnimalController {
         $stmt = $this->db->prepare($sql);
         $stmt->execute(['id' => $id]);
         return $stmt->fetch(PDO::FETCH_ASSOC);
+    }
+
+    // Fetch animals related to a specific class animal
+    public function getAnimalsByClassAnimalId($id) {
+        $sql = "SELECT * FROM animals WHERE classanimals_id = :id"; // Updated column name
+        $stmt = $this->db->prepare($sql);
+        $stmt->execute(['id' => $id]);
+        return $stmt->fetchAll(PDO::FETCH_ASSOC);
     }
 
     // Update an existing class animal

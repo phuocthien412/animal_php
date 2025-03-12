@@ -103,7 +103,7 @@
                     </li>
                     <li class="nav-item" style="margin-left:10px">
                         <a class="textheader <?php echo (strpos($_SERVER['PHP_SELF'], 'list_classanimals.php') !== false) ? 'active' : ''; ?>" 
-                           href="/animal_php/ClassAnimal">Các Lớp động vật</a>
+                           href="/animal_php/ClassAnimal">Các lớp động vật</a>
                     </li>
                     <li class="nav-item" style="margin-left:10px">
                         <a class="textheader <?php echo (basename($_SERVER['PHP_SELF']) == 'findanimal.php') ? 'active' : ''; ?>" 
@@ -130,7 +130,7 @@
                                 <button class="btn btn-outline-danger" type="submit">Đăng xuất</button>
                             </form>
                         <?php else: ?>
-                            <a class="btn btn-outline-primary" href="../login.php">Đăng nhập</a>
+                            <a class="btn btn-outline-primary" href="/animal_php/Login">Đăng nhập</a>
                         <?php endif; ?>
                     </li>
                 </ul>

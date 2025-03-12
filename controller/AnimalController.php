@@ -1,4 +1,5 @@
 <?php
+// filepath: e:\laragon\www\animal_php\controller\AnimalController.php
 require_once __DIR__ . '/../config/config.php';
 require_once __DIR__ . '/../model/Animal.php';
 
@@ -33,19 +34,18 @@ class AnimalController {
         return $stmt->fetch(PDO::FETCH_ASSOC);
     }
 
-    // Update an existing animal
-    public function updateAnimal($id, $data) {
-        $sql = "UPDATE animals SET name = :name, gioi_thieu_text = :gioi_thieu_text, ngoai_hinh_text = :ngoai_hinh_text, noi_sinh_song_text = :noi_sinh_song_text, avatar = :avatar, noi_sinh_song_image = :noi_sinh_song_image, imgqr3d = :imgqr3d, classanimals_id = :classanimals_id WHERE id_animal = :id";
+    // Fetch class animal information by ID
+    public function getClassAnimalInfoById($id) {
+        $sql = "SELECT * FROM classanimals WHERE id_class = :id"; // Updated table name
         $stmt = $this->db->prepare($sql);
-        $data['id'] = $id;
-        return $stmt->execute($data);
+        $stmt->execute(['id' => $id]);
+        return $stmt->fetch(PDO::FETCH_ASSOC);
     }
-
-    // Delete an animal
-    public function deleteAnimal($id) {
-        $sql = "DELETE FROM animals WHERE id_animal = :id";
-        $stmt = $this->db->prepare($sql);
-        return $stmt->execute(['id' => $id]);
-    }
+    public function getAnimalImagesById($id) {
+    $sql = "SELECT animalimage FROM listanimals WHERE animals_id = :id";
+    $stmt = $this->db->prepare($sql);
+    $stmt->execute(['id' => $id]);
+    return $stmt->fetchAll(PDO::FETCH_ASSOC);
+}
 }
 ?>

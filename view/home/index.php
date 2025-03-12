@@ -4,7 +4,7 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link href='https://fonts.googleapis.com/css?family=Kanit' rel='stylesheet'>
-    <link rel="stylesheet" href="/animal_php//css/mystyle.css" asp-append-version="true"/>
+    <link rel="stylesheet" href="/animal_php/css/mystyle.css" asp-append-version="true"/>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/intro.js/7.2.0/introjs.min.css">
     <style>
@@ -97,7 +97,7 @@ include '../header.php';
             </div>
             <div class="col-md-3">
                 <div class="container">
-                    <a href="/classanimals/detail/1" class="card">
+                    <a href="/animal_php/classanimal/detail/1" class="card">
                         <div class="front" style="background-image: url('/animal_php/view/design/Explore/bosat.png');"></div>
                         <div class="back" style="background-image: url('/animal_php/view/design/Explore/bosat.png');">
                             <h1 class="textexplore">Động vật bò sát</h1>
@@ -107,7 +107,7 @@ include '../header.php';
             </div>
             <div class="col-md-3">
                 <div class="container" style="margin-left:-50px;">
-                    <a href="/classanimals/detail/2" class="card">
+                    <a href="/animal_php/classanimal/detail/2" class="card">
                         <div class="front" style="background-image: url('/animal_php/view/design/Explore/ca.png');"></div>
                         <div class="back" style="background-image: url('/animal_php/view/design/Explore/ca.png');">
                             <h1 class="textexplore">Cá</h1>
@@ -117,7 +117,7 @@ include '../header.php';
             </div>
             <div class="col-md-3">
                 <div class="container" style="margin-left:-200px;">
-                    <a href="/classanimals/detail/3" class="card">
+                    <a href="/animal_php/classanimal/detail/3" class="card">
                         <div class="front" style="background-image: url('/animal_php/view/design/Explore/chim.png');"></div>
                         <div class="back" style="background-image: url('/animal_php/view/design/Explore/chim.png');">
                             <h1 class="textexplore">Chim</h1>
@@ -129,7 +129,7 @@ include '../header.php';
         <div class="row" style="margin-top:60px;">
             <div class="col-md-3">
                 <div class="container">
-                    <a href="/classanimals/detail/4" class="card">
+                    <a href="/animal_php/classanimal/detail/4" class="card">
                         <div class="front" style="background-image: url('/animal_php/view/design/Explore/dongvatcovu.png');"></div>
                         <div class="back" style="background-image: url('/animal_php/view/design/Explore/dongvatcovu.png');">
                             <h1 class="textexplore">Động vật có vú</h1>
@@ -139,7 +139,7 @@ include '../header.php';
             </div>
             <div class="col-md-3">
                 <div class="container" style="margin-left:-50px;">
-                    <a href="/classanimals/detail/5" class="card">
+                    <a href="/animal_php/classanimal/detail/5" class="card">
                         <div class="front" style="background-image: url('/animal_php/view/design/Explore/khongxuongsong.png');"></div>
                         <div class="back" style="background-image: url('/animal_php/view/design/Explore/khongxuongsong.png');">
                             <h1 class="textexplore">Động vật không xương sống</h1>
@@ -149,7 +149,7 @@ include '../header.php';
             </div>
             <div class="col-md-3">
                 <div class="container" style="margin-left:-200px;">
-                    <a href="/classanimals/detail/6" class="card">
+                    <a href="/animal_php/classanimal/detail/6" class="card">
                         <div class="front" style="background-image: url('/animal_php/view/design/Explore/luongcu.png');"></div>
                         <div class="back" style="background-image: url('/animal_php/view/design/Explore/luongcu.png');">
 
