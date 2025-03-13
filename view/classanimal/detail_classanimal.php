@@ -189,7 +189,7 @@ include '../header.php';
                 if (targetElement === document.querySelector('.list')) {
                     localStorage.removeItem('introCompleted');
                     localStorage.setItem('introAnimal', 'true');
-                    window.location.href = 'http://localhost/animal_php/classanimal/detail/1';
+                    window.location.href = 'http://localhost/animal_php/animal/detail/1';
                 }
             }).start();
         };

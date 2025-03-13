@@ -341,7 +341,7 @@ include '../header.php';
                 // Check if the current step is the last step
                 if (targetElement === document.querySelector('.front')) {
                     localStorage.setItem('introCompleted', 'true');
-                    window.location.href = 'http://localhost:8080/classanimals/detail/1';
+                    window.location.href = 'http://localhost/animal_php/classanimal/detail/1';
                 }
             }).start();
         };

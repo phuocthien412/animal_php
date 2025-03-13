@@ -20,70 +20,7 @@
     <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
     
-    <style>
-        .textheader {
-            color: #333;
-            text-decoration: none;
-            padding: 8px 15px;
-            border-radius: 20px;
-            transition: all 0.3s ease;
-        }
 
-        .textheader:hover {
-            background-color: #e9ecef;
-            color: #007bff;
-        }
-
-        .textheader.active {
-            background-color: #007bff;
-            color: white;
-        }
-
-        /* Thêm style cho navbar */
-        .navbar {
-            padding: 15px 0;
-            background-color: #F7F7F7 !important;
-        }
-
-        .navbar-brand img {
-            height: 80px;
-            width: auto;
-        }
-
-        .nav-item {
-            margin: 0 5px;
-        }
-
-        /* Style cho form tìm kiếm */
-        .input-box {
-            position: relative;
-            height: 40px;
-            max-width: 300px;
-            margin: 0 20px;
-            background: #fff;
-            border-radius: 25px;
-            box-shadow: 0 5px 10px rgba(0, 0, 0, 0.1);
-        }
-
-        .input-box input {
-            position: absolute;
-            height: 100%;
-            width: 100%;
-            border-radius: 25px;
-            background: #fff;
-            padding: 0 50px 0 20px;
-            border: none;
-            outline: none;
-        }
-
-        .input-box .icon {
-            position: absolute;
-            right: 15px;
-            top: 50%;
-            transform: translateY(-50%);
-            cursor: pointer;
-        }
-    </style>
 </head>
 <body>
 <footer>
@@ -126,14 +63,5 @@
         </div>
     </div>
 </footer>
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
-<script>
-    let inputBox = document.querySelector(".input-box"),
-        searchIcon = document.querySelector(".icon"),
-        closeIcon = document.querySelector(".close-icon");
-    searchIcon.addEventListener("click", () => inputBox.classList.add("open"));
-    closeIcon.addEventListener("click", () => inputBox.classList.remove("open"));
-</script>
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
 </body>
 </html>

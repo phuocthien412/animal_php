@@ -7,14 +7,11 @@
     <title>NEKOPARA</title>
     <!-- Favicon -->
     <link rel="shortcut icon" type="image/x-icon" href="../design/Home/logo.png" />
-    
-    <!-- Bootstrap CSS -->
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
-    <!-- Icons -->
+    <link rel="stylesheet" href="/animal_php/lib/bootstrap/dist/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="/animal_php/css/mystyle.css" asp-append-version="true" />
     <link rel="stylesheet" href="https://unicons.iconscout.com/release/v4.0.0/css/line.css">
     <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
-    
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" integrity="sha512-DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
     <style>
         .textheader {
             color: #333;
@@ -135,36 +132,44 @@
                 </ul>
             </div>
             <form action="/animal_php/search/" method="get" class="input-box" id="searchForm">
-                <input type="text" name="searchQuery" id="searchTerm" placeholder="What animal are you looking for?" class="form-control">
+            <input type="text" name="searchQuery" id="searchTerm" placeholder="What animal are you looking for?" class="form-control">
                 <span class="icon">
-                    <i class="uil uil-search search-icon"></i>
-                </span>
+						<i class="uil uil-search search-icon"></i>
+					</span>
                 <i class="uil uil-times close-icon"></i>
             </form>
-
             <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
             <script>
                 $(document).ready(function () {
                     $('#searchForm').submit(function (event) {
-                        // Allow form submission even if the search term is blank
-                        var searchTerm = $('#searchTerm').val(); // Get the value from the input field
+                        event.preventDefault(); // Ngăn chặn gửi form mặc định
 
-                        // Check if the search term is blank
-                        if (searchTerm.trim() === '') {
-                            // Set the action attribute to the desired URL
-                            $(this).attr('action', '/animal_php/search/');
+                        var searchTerm = $('#searchTerm').val(); // Lấy giá trị từ ô nhập liệu
+
+                        // Kiểm tra xem từ khóa tìm kiếm có tồn tại không trước khi gửi form
+                        if (searchTerm.trim() !== '') {
+                            $(this).unbind('submit').submit(); // Gửi form
                         } else {
-                            // Set the action attribute to the friendly URL with the search term
-                            $(this).attr('action', '/animal_php/search/' + encodeURIComponent(searchTerm.trim()));
+                            // Xử lý khi không có từ khóa tìm kiếm
+                            // Ví dụ: Hiển thị thông báo lỗi
+                            console.log('Vui lòng nhập từ khóa tìm kiếm!');
                         }
-
-                        // Allow the form to be submitted
-                        $(this).unbind('submit').submit();
                     });
                 });
-            </script>
+            </script>                 
+           
         </div>
     </nav>
+
 </header>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+<script>
+    let inputBox = document.querySelector(".input-box"),
+        searchIcon = document.querySelector(".icon"),
+        closeIcon = document.querySelector(".close-icon");
+    searchIcon.addEventListener("click", () => inputBox.classList.add("open"));
+    closeIcon.addEventListener("click", () => inputBox.classList.remove("open"));
+</script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
 </body>
 </html>
