@@ -1,4 +1,3 @@
-<!-- filepath: /d:/laragon/www/ANIMAL_PHP/view/layout.html -->
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -135,7 +134,7 @@
                     </li>
                 </ul>
             </div>
-            <form action="../search.php" method="get" class="input-box" id="searchForm">
+            <form action="/animal_php/search/" method="get" class="input-box" id="searchForm">
                 <input type="text" name="searchQuery" id="searchTerm" placeholder="What animal are you looking for?" class="form-control">
                 <span class="icon">
                     <i class="uil uil-search search-icon"></i>
@@ -147,22 +146,25 @@
             <script>
                 $(document).ready(function () {
                     $('#searchForm').submit(function (event) {
-                        event.preventDefault(); // Ngăn chặn gửi form mặc định
+                        // Allow form submission even if the search term is blank
+                        var searchTerm = $('#searchTerm').val(); // Get the value from the input field
 
-                        var searchTerm = $('#searchTerm').val(); // Lấy giá trị từ ô nhập liệu
-
-                        // Kiểm tra xem từ khóa tìm kiếm có tồn tại không trước khi gửi form
-                        if (searchTerm.trim() !== '') {
-                            $(this).unbind('submit').submit(); // Gửi form
+                        // Check if the search term is blank
+                        if (searchTerm.trim() === '') {
+                            // Set the action attribute to the desired URL
+                            $(this).attr('action', '/animal_php/search/');
                         } else {
-                            // Xử lý khi không có từ khóa tìm kiếm
-                            // Ví dụ: Hiển thị thông báo lỗi
-                            console.log('Vui lòng nhập từ khóa tìm kiếm!');
+                            // Set the action attribute to the friendly URL with the search term
+                            $(this).attr('action', '/animal_php/search/' + encodeURIComponent(searchTerm.trim()));
                         }
+
+                        // Allow the form to be submitted
+                        $(this).unbind('submit').submit();
                     });
                 });
             </script>
         </div>
     </nav>
 </header>
+</body>
 </html>
