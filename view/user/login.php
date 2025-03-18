@@ -34,7 +34,12 @@ include '../header.php';
 <section class="ClassAnimal" style="width:100%;">
     <div class="login-container" style="margin: 0 auto;">
         <h2>Login</h2>
-        <form action="login_process.php" method="POST">
+        <?php if (isset($_SESSION['error'])): ?>
+            <div class="alert alert-danger">
+                <?php echo $_SESSION['error']; unset($_SESSION['error']); ?>
+            </div>
+        <?php endif; ?>
+        <form action="/animal_php/view/user/login_process.php" method="POST">
             <div class="form-group">
                 <label for="username">Username</label>
                 <input type="text" class="form-control" id="username" name="username" required>
@@ -44,7 +49,7 @@ include '../header.php';
                 <input type="password" class="form-control" id="password" name="password" required>
             </div>
             <div class="form-group text-center">
-                <a href="register.php" class="text-primary">Register here</a>
+                <a href="/animal_php/Register" class="text-primary">Register here</a>
             </div>
             <button type="submit" class="btn btn-primary btn-block">Login</button>
         </form>
