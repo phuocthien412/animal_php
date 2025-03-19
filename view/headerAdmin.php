@@ -104,20 +104,24 @@ session_start();
                         </li>
                         <li class="nav-item" style="margin-left:10px">
                             <a class="textheader <?php echo (strpos($_SERVER['PHP_SELF'], 'list_classanimals.php') !== false) ? 'active' : ''; ?>"
-                                href="/animal_php/ClassAnimal">Các lớp động vật</a>
+                                href="/animal_php/ClassAnimal">lớp động vật</a>
                         </li>
                         <li class="nav-item" style="margin-left:10px">
                             <a class="textheader <?php echo (basename($_SERVER['PHP_SELF']) == 'findanimal.php') ? 'active' : ''; ?>"
-                                href="/animal_php/FindAnimal">Tìm kiếm bằng hình ảnh</a>
+                                href="/animal_php/FindAnimal">động vật</a>
+                        </li>
+                        <li class="nav-item" style="margin-left:10px">
+                            <a class="textheader <?php echo (basename($_SERVER['PHP_SELF']) == 'findanimal.php') ? 'active' : ''; ?>"
+                                href="/animal_php/FindAnimal">Bài viết</a>
                         </li>
                         <li class="nav-item" style="margin-left:10px">
                             <a class="textheader <?php echo (basename($_SERVER['PHP_SELF']) == 'posts.php') ? 'active' : ''; ?>"
-                                href="posts.php">Cộng đồng</a>
+                                href="posts.php">Bình luận</a>
                         </li>
                         <?php if (isset($_SESSION['roles']) && in_array('ADMIN', $_SESSION['roles'])): ?>
                             <li class="nav-item" style="margin-left:10px">
                                 <a class="textheader <?php echo (strpos($_SERVER['PHP_SELF'], 'classanimal/admin.php') !== false) ? 'active' : ''; ?>"
-                                    href="/animal_php/admin/users">Quản trị</a>
+                                    href="/animal_php/admin/users">Tài khoản</a>
                             </li>
                         <?php endif; ?>
                     </ul>

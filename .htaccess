@@ -13,3 +13,11 @@ RewriteRule ^Register$ view/user/add_user.php [L]
 RewriteRule ^classanimal/detail/([0-9]+)$ view/classanimal/detail_classanimal.php?id=$1 [L]
 RewriteRule ^animal/detail/([0-9]+)$ view/animal/view_animal.php?id=$1 [L]
 RewriteRule ^search/(.*)$ view/animal/animals-list.php?searchQuery=$1 [L,QSA]
+# Friendly URL for user-admin delete
+RewriteRule ^admin/users/delete/([0-9]+)$ view/admin/users/delete.php?id=$1 [L]
+
+# Friendly URL for user-admin edit role
+RewriteRule ^admin/users/editRole/([0-9]+)$ view/admin/users/editRole.php?id=$1 [L]
+
+# Friendly URL for user-admin 
+RewriteRule ^admin/users$ view/admin/users/user-admin.php [L]

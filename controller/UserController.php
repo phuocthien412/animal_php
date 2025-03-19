@@ -107,10 +107,32 @@ class UserController {
 
     // Read a single user by ID
     public function getUserById($id) {
-        $sql = "SELECT * FROM user WHERE id = :id";
+        $sql = "SELECT u.id, u.username, r.name AS role_name
+                FROM user u
+                LEFT JOIN user_role ur ON u.id = ur.user_id
+                LEFT JOIN role r ON ur.role_id = r.id
+                WHERE u.id = :id";
         $stmt = $this->db->prepare($sql);
         $stmt->execute(['id' => $id]);
-        return $stmt->fetch(PDO::FETCH_ASSOC);
+        $rows = $stmt->fetchAll(PDO::FETCH_ASSOC);
+    
+        if (!$rows) {
+            return null;
+        }
+    
+        $user = [
+            'id' => $rows[0]['id'],
+            'username' => $rows[0]['username'],
+            'roles' => []
+        ];
+    
+        foreach ($rows as $row) {
+            if ($row['role_name']) {
+                $user['roles'][] = $row['role_name'];
+            }
+        }
+    
+        return $user;
     }
 
     // Update an existing user
@@ -127,6 +149,12 @@ class UserController {
 
     // Delete a user
     public function deleteUser($id) {
+        // Delete the user's roles first to maintain referential integrity
+        $sql = "DELETE FROM user_role WHERE user_id = :id";
+        $stmt = $this->db->prepare($sql);
+        $stmt->execute(['id' => $id]);
+    
+        // Delete the user
         $sql = "DELETE FROM user WHERE id = :id";
         $stmt = $this->db->prepare($sql);
         return $stmt->execute(['id' => $id]);
@@ -141,5 +169,49 @@ class UserController {
         $stmt->execute(['user_id' => $userId]);
         return $stmt->fetchAll(PDO::FETCH_COLUMN);
     }
+    public function getAllUsersWithRoles() {
+        $sql = "SELECT u.id, u.username, u.email, r.name AS role_name
+                FROM user u
+                LEFT JOIN user_role ur ON u.id = ur.user_id
+                LEFT JOIN role r ON ur.role_id = r.id";
+        $stmt = $this->db->prepare($sql);
+        $stmt->execute();
+        $rows = $stmt->fetchAll(PDO::FETCH_ASSOC);
+    
+        // Group roles by user
+        $users = [];
+        foreach ($rows as $row) {
+            $userId = $row['id'];
+            if (!isset($users[$userId])) {
+                $users[$userId] = [
+                    'id' => $row['id'],
+                    'username' => $row['username'],
+                    'email' => $row['email'],
+                    'roles' => []
+                ];
+            }
+            if ($row['role_name']) {
+                $users[$userId]['roles'][] = $row['role_name'];
+            }
+        }
+    
+        return array_values($users);
+    }
+    public function updateUserRoles($userId, $roles) {
+        // Delete existing roles for the user
+        $sql = "DELETE FROM user_role WHERE user_id = :user_id";
+        $stmt = $this->db->prepare($sql);
+        $stmt->execute(['user_id' => $userId]);
+    
+        // Insert new roles
+        $sql = "INSERT INTO user_role (user_id, role_id) VALUES (:user_id, :role_id)";
+        $stmt = $this->db->prepare($sql);
+        foreach ($roles as $roleId) {
+            $stmt->execute(['user_id' => $userId, 'role_id' => $roleId]);
+        }
+    
+        return true;
+    }
+    
 }
 ?>
