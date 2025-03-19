@@ -21,3 +21,7 @@ RewriteRule ^admin/users/editRole/([0-9]+)$ view/admin/users/editRole.php?id=$1 
 
 # Friendly URL for user-admin 
 RewriteRule ^admin/users$ view/admin/users/user-admin.php [L]
+
+RewriteRule ^admin/animals$ view/admin/animals/animal-admin.php [L]
+
+RewriteRule ^admin/classanimals$ view/admin/classanimals/classanimal-admin.php [L]

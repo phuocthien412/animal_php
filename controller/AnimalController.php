@@ -21,7 +21,7 @@ class AnimalController {
 
     // Read all animals
     public function getAllAnimals() {
-        $sql = "SELECT id_animal, name, gioi_thieu_text, avatar FROM animals";
+        $sql = "SELECT * FROM animals";
         $stmt = $this->db->query($sql);
         return $stmt->fetchAll(PDO::FETCH_ASSOC);
     }

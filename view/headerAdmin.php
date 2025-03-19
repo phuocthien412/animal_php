@@ -104,19 +104,19 @@ session_start();
                         </li>
                         <li class="nav-item" style="margin-left:10px">
                             <a class="textheader <?php echo (strpos($_SERVER['PHP_SELF'], 'list_classanimals.php') !== false) ? 'active' : ''; ?>"
-                                href="/animal_php/ClassAnimal">lớp động vật</a>
+                                href="/animal_php/admin/classanimals">lớp động vật</a>
                         </li>
                         <li class="nav-item" style="margin-left:10px">
                             <a class="textheader <?php echo (basename($_SERVER['PHP_SELF']) == 'findanimal.php') ? 'active' : ''; ?>"
-                                href="/animal_php/FindAnimal">động vật</a>
+                                href="/animal_php/admin/animals">động vật</a>
                         </li>
                         <li class="nav-item" style="margin-left:10px">
                             <a class="textheader <?php echo (basename($_SERVER['PHP_SELF']) == 'findanimal.php') ? 'active' : ''; ?>"
-                                href="/animal_php/FindAnimal">Bài viết</a>
+                                href="/animal_php/admin/posts">Bài viết</a>
                         </li>
                         <li class="nav-item" style="margin-left:10px">
                             <a class="textheader <?php echo (basename($_SERVER['PHP_SELF']) == 'posts.php') ? 'active' : ''; ?>"
-                                href="posts.php">Bình luận</a>
+                                href="/animal_php/admin/comments">Bình luận</a>
                         </li>
                         <?php if (isset($_SESSION['roles']) && in_array('ADMIN', $_SESSION['roles'])): ?>
                             <li class="nav-item" style="margin-left:10px">

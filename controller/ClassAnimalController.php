@@ -21,11 +21,10 @@ class ClassAnimalController {
 
     // Read all class animals
     public function getAllClassAnimals() {
-        $sql = "SELECT id_class, background_video, info, name FROM classanimals";
+        $sql = "SELECT * FROM classanimals";
         $stmt = $this->db->query($sql);
         return $stmt->fetchAll(PDO::FETCH_ASSOC);
     }
-
     // Read a single class animal by ID
     public function getClassAnimalById($id) {
         $sql = "SELECT * FROM classanimals WHERE id_class = :id";
