@@ -45,6 +45,25 @@ class CommentController {
         $sql = "DELETE FROM comments WHERE id_cmt = :id_cmt";
         $stmt = $this->db->prepare($sql);
         return $stmt->execute(['id_cmt' => $id_cmt]);
+
+    }
+    public function getCommentsByPostId($post_id) {
+        $sql = "SELECT * FROM comments WHERE post_id = :post_id ORDER BY date_time ASC";
+        $stmt = $this->db->prepare($sql);
+        $stmt->execute(['post_id' => $post_id]);
+        return $stmt->fetchAll(PDO::FETCH_ASSOC);
+    }
+    public function addComment($post_id, $user_id, $chat_data) {
+        $sql = "INSERT INTO comments (post_id, user_id, chat_data, date_time) VALUES (:post_id, :user_id, :chat_data, NOW())";
+        $stmt = $this->db->prepare($sql);
+    
+        $stmt->bindParam(':post_id', $post_id, PDO::PARAM_INT);
+        $stmt->bindParam(':user_id', $user_id, PDO::PARAM_INT);
+        $stmt->bindParam(':chat_data', $chat_data, PDO::PARAM_STR);
+    
+        if (!$stmt->execute()) {
+            throw new Exception("Error adding comment: " . implode(", ", $stmt->errorInfo()));
+        }
     }
 }
 ?>

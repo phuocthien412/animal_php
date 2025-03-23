@@ -70,16 +70,17 @@
                             <td><?= htmlspecialchars($animal['classanimals_id']) ?></td>
                             <td>
                                 <?php if ($isAdmin): ?>
-                                    <!-- Delete button -->
-                                    <a href="/animal_php/admin/animals/delete/<?= urlencode($animal['id_animal']) ?>"
-                                        class="btn btn-danger btn-sm"
-                                        onclick="return confirm('Are you sure you want to delete this animal?')">Delete</a>
+                                    
                                     <!-- View button -->
                                     <a href="/animal_php/animal/detail/<?= urlencode($animal['id_animal']) ?>"
                                         class="btn btn-info btn-sm">View</a>
                                     <!-- Edit button -->
                                     <a href="/animal_php/admin/animals/edit/<?= urlencode($animal['id_animal']) ?>"
                                         class="btn btn-warning btn-sm">Edit</a>
+                                        <!-- Delete button -->
+                                    <a href="/animal_php/admin/animals/delete/<?= urlencode($animal['id_animal']) ?>"
+                                        class="btn btn-danger btn-sm"
+                                        onclick="return confirm('Are you sure you want to delete this animal?')">Delete</a>
                                 <?php endif; ?>
                             </td>
                         </tr>

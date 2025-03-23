@@ -2,7 +2,7 @@
 <html lang="en">
 
 <head>
-    <title>Class Animals List</title>
+    <title>Comment List</title>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css">
 </head>
 
@@ -11,21 +11,21 @@
     // Include the admin header
     include '../../headerAdmin.php';
 
-    // Include the ClassAnimalController
-    require_once '../../../controller/ClassAnimalController.php';
+    // Include the CommentController
+    require_once '../../../controller/CommentController.php';
 
-    // Initialize ClassAnimalController
-    $classAnimalController = new ClassAnimalController();
+    // Initialize CommentController
+    $commentController = new CommentController();
 
-    // Fetch class animals from the database
-    $classAnimals = $classAnimalController->getAllClassAnimals();
+    // Fetch comments from the database
+    $comments = $commentController->getAllComments();
 
     // Check if the current user has the "ADMIN" role
     $isAdmin = isset($_SESSION['roles']) && in_array('ADMIN', $_SESSION['roles']);
     ?>
     <section style="padding: 0;">
         <div class="container mt-4">
-            <h1>Class Animals List</h1>
+            <h1>Comment List</h1>
 
             <!-- Display success or error messages -->
             <?php if (isset($_GET['success'])): ?>
@@ -43,21 +43,25 @@
                 <thead class="table-dark">
                     <tr>
                         <th>ID</th>
-                        <th>Info</th>
-                        <th>Name</th>
+                        <th>Post ID</th>
+                        <th>User ID</th>
+                        <th>Comment</th>
+                        <th>Date</th>
                         <th>Actions</th>
                     </tr>
                 </thead>
                 <tbody>
-                    <?php foreach ($classAnimals as $classAnimal): ?>
+                    <?php foreach ($comments as $comment): ?>
                         <tr>
-                            <td><?= htmlspecialchars($classAnimal['id_class']) ?></td>
-                            <td><?= htmlspecialchars($classAnimal['info']) ?></td>
-                            <td><?= htmlspecialchars($classAnimal['name']) ?></td>
+                            <td><?= htmlspecialchars($comment['id']) ?></td>
+                            <td><?= htmlspecialchars($comment['post_id']) ?></td>
+                            <td><?= htmlspecialchars($comment['user_id']) ?></td>
+                            <td><?= htmlspecialchars($comment['chat_data']) ?></td>
+                            <td><?= htmlspecialchars($comment['date_time']) ?></td>
                             <td>
                                 <?php if ($isAdmin): ?>
-                                    <a href="/animal_php/classanimal/detail/<?= urlencode($classAnimal['id_class']) ?>"
-                                        class="btn btn-warning btn-sm">View</a>
+                                    <a href="/animal_php/view/admin/comments/delete-comment.php?id=<?= urlencode($comment['id']) ?>"
+                                        class="btn btn-danger btn-sm">Delete</a>
                                 <?php endif; ?>
                             </td>
                         </tr>

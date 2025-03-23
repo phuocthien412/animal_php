@@ -54,5 +54,6 @@ class PostController {
         $stmt = $this->db->prepare($sql);
         return $stmt->execute(['id_post' => $id_post]);
     }
+    
 }
 ?>

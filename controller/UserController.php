@@ -212,6 +212,12 @@ class UserController {
     
         return true;
     }
+    public function getUsernameById($user_id) {
+        $sql = "SELECT username FROM user WHERE id = :user_id";
+        $stmt = $this->db->prepare($sql);
+        $stmt->execute(['user_id' => $user_id]);
+        return $stmt->fetchColumn(); // Return the username
+    }
     
 }
 ?>
