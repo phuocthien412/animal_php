@@ -38,7 +38,9 @@
                     <?= htmlspecialchars($_GET['error']) ?>
                 </div>
             <?php endif; ?>
-
+            <div class="mb-3">
+                <a href="/animal_php/admin/animals/add" class="btn btn-success">Add Animal</a>
+            </div>
             <table class="table table-bordered table-hover">
                 <thead class="table-dark">
                     <tr>
@@ -72,7 +74,9 @@
                                     <a href="/animal_php/admin/animals/delete/<?= urlencode($animal['id_animal']) ?>"
                                         class="btn btn-danger btn-sm"
                                         onclick="return confirm('Are you sure you want to delete this animal?')">Delete</a>
-
+                                    <!-- View button -->
+                                    <a href="/animal_php/animal/detail/<?= urlencode($animal['id_animal']) ?>"
+                                        class="btn btn-info btn-sm">View</a>
                                     <!-- Edit button -->
                                     <a href="/animal_php/admin/animals/edit/<?= urlencode($animal['id_animal']) ?>"
                                         class="btn btn-warning btn-sm">Edit</a>

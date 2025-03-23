@@ -23,5 +23,9 @@ RewriteRule ^admin/users/editRole/([0-9]+)$ view/admin/users/editRole.php?id=$1 
 RewriteRule ^admin/users$ view/admin/users/user-admin.php [L]
 
 RewriteRule ^admin/animals$ view/admin/animals/animal-admin.php [L]
+RewriteRule ^admin/animals/add$ view/admin/animals/add_animal.php [L]
+RewriteRule ^admin/animals/delete/([0-9]+)$ view/admin/animals/delete.php?id=$1 [L]
+RewriteRule ^admin/animals/edit/([0-9]+)$ view/admin/animals/update_animal.php?id=$1 [L]
+RewriteRule ^admin/animals/edit$ view/admin/animals/update_animal.php [L]
 
 RewriteRule ^admin/classanimals$ view/admin/classanimals/classanimal-admin.php [L]
