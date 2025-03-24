@@ -44,8 +44,11 @@ class CommentController {
     public function deleteComment($id_cmt) {
         $sql = "DELETE FROM comments WHERE id_cmt = :id_cmt";
         $stmt = $this->db->prepare($sql);
-        return $stmt->execute(['id_cmt' => $id_cmt]);
-
+        $stmt->bindParam(':id_cmt', $id_cmt, PDO::PARAM_INT);
+    
+        if (!$stmt->execute()) {
+            throw new Exception("Error deleting comment: " . implode(", ", $stmt->errorInfo()));
+        }
     }
     public function getCommentsByPostId($post_id) {
         $sql = "SELECT * FROM comments WHERE post_id = :post_id ORDER BY date_time ASC";

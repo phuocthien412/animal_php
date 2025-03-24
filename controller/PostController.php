@@ -52,7 +52,18 @@ class PostController {
     public function deletePost($id_post) {
         $sql = "DELETE FROM posts WHERE id_post = :id_post";
         $stmt = $this->db->prepare($sql);
-        return $stmt->execute(['id_post' => $id_post]);
+        $stmt->bindParam(':id_post', $id_post, PDO::PARAM_INT);
+    
+        if (!$stmt->execute()) {
+            throw new Exception("Error deleting post: " . implode(", ", $stmt->errorInfo()));
+        }
+    }
+    public function getPostsByUserId($user_id) {
+        $sql = "SELECT * FROM posts WHERE user_id = :user_id ORDER BY date DESC";
+        $stmt = $this->db->prepare($sql);
+        $stmt->bindParam(':user_id', $user_id, PDO::PARAM_INT);
+        $stmt->execute();
+        return $stmt->fetchAll(PDO::FETCH_ASSOC);
     }
     
 }

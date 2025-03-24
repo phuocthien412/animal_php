@@ -1,15 +1,27 @@
 <?php
 
-
 require_once '../../controller/PostController.php';
 require_once '../../controller/UserController.php';
 
 $postController = new PostController();
 $userController = new UserController();
 
-// Fetch posts from the database
-$posts = $postController->getAllPosts();
+include '../header.php';
+// Get the logged-in user's ID
+$loggedInUserId = $_SESSION['user_id'];
 
+// Check if "Show My Posts" is enabled
+$showOnlyMyPosts = isset($_GET['showOnlyMyPosts']) && $_GET['showOnlyMyPosts'] === 'true';
+
+if ($showOnlyMyPosts) {
+    // Filter posts where the user_id matches the logged-in user's ID
+    $posts = array_filter($postController->getAllPosts(), function ($post) use ($loggedInUserId) {
+        return $post['user_id'] === $loggedInUserId;
+    });
+} else {
+    // Fetch all posts
+    $posts = $postController->getAllPosts();
+}
 ?>
 
 
@@ -28,7 +40,6 @@ $posts = $postController->getAllPosts();
 </head>
 
 <body>
-    <?php include '../header.php'; ?>
     <?php
     if (!isset($_SESSION['user_id'])) {
         // Redirect to the login page using JavaScript
@@ -79,8 +90,12 @@ $posts = $postController->getAllPosts();
                     </div>
                 </div>
                 <div class="form-check" style="margin-left: -800px; font-size: 2rem;margin-top: 100px">
-                    <input class="form-check-input" type="checkbox" value="" id="showOnlyMyPosts" th:checked="${showOnlyMyPosts}" onchange="window.location.href = '/posts?showOnlyMyPosts=' + this.checked;" style="transform: scale(2); margin-top: 15px">
-                    <label class="form-check-label" for="showOnlyMyPosts" style="color: white; -webkit-text-stroke: 1px black; margin-left: 10px;">
+                    <input class="form-check-input" type="checkbox" value="" id="showOnlyMyPosts"
+                        <?= isset($_GET['showOnlyMyPosts']) && $_GET['showOnlyMyPosts'] === 'true' ? 'checked' : '' ?>
+                        onchange="window.location.href = '/animal_php/view/post/posts-list.php?showOnlyMyPosts=' + this.checked;"
+                        style="transform: scale(2); margin-top: 15px">
+                    <label class="form-check-label" for="showOnlyMyPosts"
+                        style="color: white; -webkit-text-stroke: 1px black; margin-left: 10px;">
                         Show my posts
                     </label>
                 </div>

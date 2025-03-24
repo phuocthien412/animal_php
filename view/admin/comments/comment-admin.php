@@ -53,15 +53,15 @@
                 <tbody>
                     <?php foreach ($comments as $comment): ?>
                         <tr>
-                            <td><?= htmlspecialchars($comment['id']) ?></td>
+                            <td><?= htmlspecialchars($comment['id_cmt']) ?></td>
                             <td><?= htmlspecialchars($comment['post_id']) ?></td>
                             <td><?= htmlspecialchars($comment['user_id']) ?></td>
                             <td><?= htmlspecialchars($comment['chat_data']) ?></td>
                             <td><?= htmlspecialchars($comment['date_time']) ?></td>
                             <td>
                                 <?php if ($isAdmin): ?>
-                                    <a href="/animal_php/view/admin/comments/delete-comment.php?id=<?= urlencode($comment['id']) ?>"
-                                        class="btn btn-danger btn-sm">Delete</a>
+                                    <a href="/animal_php/view/admin/comments/delete-comment.php?id=<?= urlencode($comment['id_cmt']) ?>"
+    class="btn btn-danger btn-sm">Delete</a>    
                                 <?php endif; ?>
                             </td>
                         </tr>

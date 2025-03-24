@@ -125,7 +125,7 @@ include '../header.php';
                 <h1 class="textclassanimalName" style="margin-top:100px;">Chúng tôi rất tiếc vì con vật bạn tìm kiếm
                     không có trong danh sách trên trang web.Nếu có thể,mong bạn hãy chia sẽ hình ảnh hoặc trải
                     nghiêm của mình về con vật mà bạn muốn tìm thông qua kênh Community!</h1>
-                <a href="/posts" class="button" style="margin-top: 50px;">
+                <a href="/animal_php/Posts" class="button" style="margin-top: 50px;">
                     <span class="content">Community!</span>
                 </a>
             <?php } else { ?>

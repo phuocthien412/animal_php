@@ -113,7 +113,7 @@ session_start();
                         </li>
                         <li class="nav-item" style="margin-left:10px">
                             <a class="textheader <?php echo (basename($_SERVER['PHP_SELF']) == 'posts.php') ? 'active' : ''; ?>"
-                                href="posts.php">Cộng đồng</a>
+                                href="Posts">Cộng đồng</a>
                         </li>
                         <?php if (isset($_SESSION['roles']) && in_array('ADMIN', $_SESSION['roles'])): ?>
                             <li class="nav-item" style="margin-left:10px">

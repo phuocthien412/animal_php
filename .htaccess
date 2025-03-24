@@ -33,3 +33,7 @@ RewriteRule ^admin/classanimals$ view/admin/classanimals/classanimal-admin.php [
 #post
 RewriteRule ^Posts$ view/post/posts-list.php [L]
 RewriteRule ^posts/detail/([0-9]+)$ view/post/post-detail.php?id=$1 [L]
+RewriteRule ^admin/posts$ view/admin/posts/post-admin.php [L]
+
+#comment
+RewriteRule ^admin/comments$ view/admin/comments/comment-admin.php [L]
