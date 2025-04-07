@@ -4,7 +4,7 @@ class ListAnimal {
     private $animalimage;
     private $animals_id;
 
-    // Getters and setters for each property
+    // Getters and setters for each property.....
     public function getId() {
         return $this->id;
     }
