@@ -120,7 +120,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     <div class="form-container">
         <h2>Thêm động vật</h2>
         <?php if (isset($_GET['success'])): ?>
-            <div class="alert alert-success">Động vật đã được thêm thành công!</div>
+            <div class="alert alert-success">Động vật đã được thêm thành công!!!</div>
         <?php endif; ?>
         <form action="/animal_php/admin/animals/add" method="POST" enctype="multipart/form-data">
             <div class="form-group">
