@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <title>Purple Admin</title>
+    <!-- plugins:css -->
+    <link rel="stylesheet" href="/webbanhang/public/admin/vendors/mdi/css/materialdesignicons.min.css">
+    <link rel="stylesheet" href="/webbanhang/public/admin/vendors/css/vendor.bundle.base.css">
+    <!-- endinject -->
+    <!-- Plugin css for this page -->
+    <!-- End plugin css for this page -->
+    <!-- inject:css -->
+    <!-- endinject -->
+    <!-- Layout styles -->
+    <link rel="stylesheet" href="/webbanhang/public/admin/css/style.css">
+    <!-- End layout styles -->
+    <link rel="shortcut icon" href="/webbanhang/public/admin/images/favicon.ico" />
+  </head>
+  <body>
+    <div class="container-scroller">
+      <!-- partial:../../partials/_navbar.html -->
+      <?php include 'app/views/shares/admin/navbar.php'; ?>
+        <!-- partial -->
+        <div class="main-panel">
+          <div class="content-wrapper">
+            <div class="row">             
+              <div class="col-12 grid-margin stretch-card">
+                <div class="card">
+                  <div class="card-body">
+                    <h4 class="card-title">Sửa sản phẩm</h4>
+                    <form id="edit-product-form" method="POST" action="/webbanhang/Product/update" enctype="multipart/form-data"
+                    onsubmit="return validateForm();" class="forms-sample">
+                      <input type="hidden" name="id" id="product-id" value="<?php echo $product->id; ?>">
+                      <div class="form-group">
+                        <label for="name">Tên sản phẩm</label>
+                        <input type="text" class="form-control" id="name" name="name" placeholder="Tên sản phẩm" required>
+                      </div>
+                      <div class="form-group">
+                        <label for="description">Mô tả</label>
+                        <textarea class="form-control" id="description" name="description" rows="4" required></textarea>
+                      </div>
+                      <div class="form-group">
+                        <label for="price">Giá</label>
+                        <input type="number" class="form-control" id="price" name="price" placeholder="Giá sản phẩm" required>
+                      </div>
+                      <div class="form-group">
+                        <label for="category_id">Danh mục</label>
+                        <select class="form-control" id="category_id" name="category_id" required>
+                          <!-- Categories will be loaded here -->
+                        </select>
+                      </div>
+                      <div class="form-group">
+                        <label>Hình ảnh sản phẩm</label>
+                        <input type="file" name="image" class="file-upload-default" accept="image/*">
+                        <input type="hidden" name="existing_image" id="existing_image">
+                        <div class="input-group col-xs-12">
+                          <input type="text" class="form-control file-upload-info" disabled placeholder="Upload Image">
+                          <span class="input-group-append">
+                            <button class="file-upload-browse btn btn-gradient-primary" type="button">Upload</button>
+                          </span>
+                        </div>
+                        <div class="mt-3">
+                          <img id="image-preview" src="" alt="Product preview" style="max-width: 200px; display: none;">
+                        </div>
+                      </div>
+                      <button type="submit" class="btn btn-gradient-primary me-2">Lưu thay đổi</button>
+                      <a href="/webbanhang/Admin/product" class="btn btn-light">Hủy</a>
+                    </form>
+                  </div>
+                </div>
+              </div>                           
+            </div>
+          </div>
+          <!-- content-wrapper ends -->
+          <!-- partial:../../partials/_footer.html -->
+          <?php include 'app/views/shares/admin/footer.php'; ?>
+          <!-- partial -->
+        </div>
+        <!-- main-panel ends -->
+      </div>
+      <!-- page-body-wrapper ends -->
+    </div>
+    <!-- container-scroller -->
+    <!-- plugins:js -->
+    <script src="/webbanhang/public/admin/vendors/js/vendor.bundle.base.js"></script>
+    <!-- endinject -->
+    <!-- Plugin js for this page -->
+    <!-- End plugin js for this page -->
+    <!-- inject:js -->
+    <script src="/webbanhang/public/admin/js/off-canvas.js"></script>
+    <script src="/webbanhang/public/admin/js/hoverable-collapse.js"></script>
+    <script src="/webbanhang/public/admin/js/misc.js"></script>
+    <!-- endinject -->
+    <!-- Custom js for this page -->
+    <script src="/webbanhang/public/admin/js/file-upload.js"></script>
+    <script>
+    document.addEventListener('DOMContentLoaded', function() {
+        const token = localStorage.getItem('jwtToken');
+        if (!token) {
+            alert('Vui lòng đăng nhập');
+            location.href = '/webbanhang/admin/login';
+            return;
+        }
+
+        const productId = document.getElementById('product-id').value;
+        const imagePreview = document.getElementById('image-preview');
+        const existingImageInput = document.getElementById('existing_image');
+
+        // Load product data
+        fetch(`/webbanhang/api/product/${productId}`, {
+            headers: {
+                'Authorization': `Bearer ${token}`
+            }
+        })
+        .then(response => response.json())
+        .then(product => {
+            document.getElementById('name').value = product.name;
+            document.getElementById('description').value = product.description;
+            document.getElementById('price').value = product.price;
+            document.getElementById('category_id').value = product.category_id;
+            existingImageInput.value = product.image;
+
+            if (product.image) {
+                imagePreview.src = '/webbanhang/' + product.image;
+                imagePreview.style.display = 'block';
+            }
+        });
+
+        // Load categories
+        fetch('/webbanhang/api/category', {
+            headers: {
+                'Authorization': `Bearer ${token}`
+            }
+        })
+        .then(response => response.json())
+        .then(data => {
+            const categorySelect = document.getElementById('category_id');
+            data.categories.forEach(category => { // Thêm .categories để lấy array categories
+                const option = document.createElement('option');
+                option.value = category.id;
+                option.textContent = category.name;
+                categorySelect.appendChild(option);
+            });
+        });
+
+        // Preview image before upload
+        document.querySelector('input[name="image"]').addEventListener('change', function(e) {
+            const file = e.target.files[0];
+            if (file) {
+                const reader = new FileReader();
+                reader.onload = function(e) {
+                    imagePreview.src = e.target.result;
+                    imagePreview.style.display = 'block';
+                }
+                reader.readAsDataURL(file);
+            }
+        });
+    });
+    </script>
+    <!-- End custom js for this page -->
+  </body>
+</html>

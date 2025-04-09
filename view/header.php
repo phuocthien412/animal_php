@@ -87,7 +87,7 @@ session_start();
     <header>
         <nav class="navbar navbar-expand-sm navbar-toggleable-sm navbar-light border-bottom box-shadow mb-3" style="background-color:#F7F7F7;">
             <div class="container-fluid" style="margin-left:100px">
-                <a class="navbar-brand" href="../index.php">
+                <a class="navbar-brand" href="/animal_php/Home">
                     <div class="logo">
                         <img src="/animal_php/view/design/Header/logo.png" width="120px" height="80px">
                     </div>
@@ -113,7 +113,7 @@ session_start();
                         </li>
                         <li class="nav-item" style="margin-left:10px">
                             <a class="textheader <?php echo (basename($_SERVER['PHP_SELF']) == 'posts.php') ? 'active' : ''; ?>"
-                                href="Posts">Cộng đồng</a>
+                                href="/animal_php/Posts">Cộng đồng</a>
                         </li>
                         <?php if (isset($_SESSION['roles']) && in_array('ADMIN', $_SESSION['roles'])): ?>
                             <li class="nav-item" style="margin-left:10px">

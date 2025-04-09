@@ -54,9 +54,7 @@ $animals = $classAnimalController->getAnimalsByClassAnimalId($id);
     </style>
 </head>
 <body>
-<?php
-include '../header.php';
-?>
+<?php include '../header.php'; ?>
 <section layout:fragment="content" style="padding: 0;">
     <section class="ClassAnimal">
         <img src="/animal_php/view/design/ClassAnimal/Background/<?php echo htmlspecialchars($classanimal['background_video']); ?>" alt="Background vid" class="classbg" />

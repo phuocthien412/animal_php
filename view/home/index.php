@@ -57,7 +57,7 @@ include '../header.php';
     </nav>
 
     <section id="home" class="home" style="margin-top: -100px;">
-        <img src="/animal_php/view/design/Home/logo.png" class="logo1"/>
+        <img src="/animal_php/view/design/Home/logo.png" class="logo1" />
         <h1 class="texthome"> Chào mừng bạn đến với cổng thông tin về các loài động vật của NEKOPARA! </h1>
     </section>
 
@@ -182,7 +182,7 @@ include '../header.php';
                     động
                     vật mà bạn đã từng gặp thông qua phần diễn đàn trao đổi của chúng tôi.
                 </h1>
-                <a href="/posts" class="button" style="margin-top: 50px;">
+                <a href="/animal_php/view/post/posts-list.php" class="button" style="margin-top: 50px;">
                     <span class="content">Community!</span>
                 </a>
             </div>

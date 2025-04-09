@@ -51,7 +51,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['id'])) {
     <?php include '../../headerAdmin.php'; ?>
     <div class="container mt-5">
         <h1>Edit Animal</h1>
-        <form action="/animal_php/view/admin/animals/edit" method="POST">
+        <form action="/animal_php/view/admin/animals/update_animal.php" method="POST">
             <input type="hidden" name="id" value="<?= htmlspecialchars($animal['id_animal']) ?>">
             <div class="form-group">
                 <label for="name">Name:</label>

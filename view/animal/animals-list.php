@@ -4,37 +4,10 @@ require_once '../../controller/AnimalController.php';
 
 $animalController = new AnimalController();
 $searchQuery = isset($_GET['searchQuery']) ? $_GET['searchQuery'] : '';
-$animals = $animalController->getAllAnimals();
 
-function normalizeString($str) {
-    $str = mb_strtolower($str, 'UTF-8');
-    $str = preg_replace('/[áàảãạâấầẩẫậăắằẳẵặ]/u', 'a', $str);
-    $str = preg_replace('/[éèẻẽẹêếềểễệ]/u', 'e', $str);
-    $str = preg_replace('/[íìỉĩị]/u', 'i', $str);
-    $str = preg_replace('/[óòỏõọôốồổỗộơớờởỡợ]/u', 'o', $str);
-    $str = preg_replace('/[úùủũụưứừửữự]/u', 'u', $str);
-    $str = preg_replace('/[ýỳỷỹỵ]/u', 'y', $str);
-    $str = preg_replace('/đ/u', 'd', $str);
-    return $str;
-}
-
-if ($searchQuery !== '') {
-    if ($searchQuery === 'Unknown') {
-        $animals = [];
-    } else {
-        $normalizedSearchQuery = normalizeString($searchQuery);
-        $exactMatches = array_filter($animals, function($animal) use ($searchQuery) {
-            return mb_strtolower($animal['name'], 'UTF-8') === mb_strtolower($searchQuery, 'UTF-8');
-        });
-        if (!empty($exactMatches)) {
-            $animals = $exactMatches;
-        } else {
-            $animals = array_filter($animals, function($animal) use ($normalizedSearchQuery) {
-                return mb_stripos(normalizeString($animal['name']), $normalizedSearchQuery) !== false;
-            });
-        }
-    }
-}
+// Lấy dữ liệu từ controller
+$viewData = $animalController->handleAnimalsList($searchQuery);
+$animals = $viewData['animals'];
 ?>
 
 <!DOCTYPE html>
@@ -86,9 +59,7 @@ if ($searchQuery !== '') {
     </style>
 </head>
 <body>
-<?php
-include '../header.php';
-?>
+<?php include '../header.php'; ?>
 <section layout:fragment="content" style="padding: 0;">
     <section class="ClassAnimal">
         <img src="/animal_php/view/design/ClassAnimal/Background/chim.gif" alt="Background vid" class="classbg"/>
@@ -122,9 +93,11 @@ include '../header.php';
         </div>
         <div class="list" style="margin-top:-100px; display: flex; flex-wrap: wrap;">
             <?php if (empty($animals)) { ?>
-                <h1 class="textclassanimalName" style="margin-top:100px;">Chúng tôi rất tiếc vì con vật bạn tìm kiếm
-                    không có trong danh sách trên trang web.Nếu có thể,mong bạn hãy chia sẽ hình ảnh hoặc trải
-                    nghiêm của mình về con vật mà bạn muốn tìm thông qua kênh Community!</h1>
+                <h1 class="textclassanimalName" style="margin-top:100px;">
+                    Chúng tôi rất tiếc vì con vật bạn tìm kiếm không có trong danh sách trên trang web.
+                    Nếu có thể, mong bạn hãy chia sẽ hình ảnh hoặc trải nghiệm của mình về con vật 
+                    mà bạn muốn tìm thông qua kênh Community!
+                </h1>
                 <a href="/animal_php/Posts" class="button" style="margin-top: 50px;">
                     <span class="content">Community!</span>
                 </a>
@@ -198,9 +171,6 @@ include '../header.php';
         }
     </script>
 </section>
-<?php
-include '../footer.php';
-?>
+<?php include '../footer.php'; ?>
 </body>
-
 </html>

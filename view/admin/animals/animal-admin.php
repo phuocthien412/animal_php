@@ -39,7 +39,9 @@
                 </div>
             <?php endif; ?>
             <div class="mb-3">
+            <?php if ($isAdmin): ?>
                 <a href="/animal_php/admin/animals/add" class="btn btn-success">Add Animal</a>
+                <?php endif; ?>
             </div>
             <table class="table table-bordered table-hover">
                 <thead class="table-dark">
