@@ -18,7 +18,7 @@
         }
 
 
-        /* Styles for the static image button */
+        /* Styles for the static image button. */
         .static-button {
             position: fixed; /* Fixes the button in the viewport */
             bottom: 20px; /* Distance from the bottom */
@@ -80,7 +80,7 @@ include '../header.php';
                     Qua trang NEKOPARA, chúng tôi muốn chia sẻ kiến thức và thông tin đáng tin cậy về
                     động vật, giúp mọi người hiểu rõ hơn về cuộc sống và sự đa dạng của chúng. Chúng tôi hy vọng rằng
                     thông qua việc tăng cường nhận thức và kiến thức về động vật, chúng ta có thể thúc đẩy những nỗ lực
-                    bảo vệ môi trường và duy trì sự cân bằng tự nhiên.
+                    bảo vệ môi trường và duy trì sự cân bằng tự nhiên....
                 </h1>
             </div>
             <div class="col-md-6">
@@ -100,7 +100,7 @@ include '../header.php';
                     <a href="/animal_php/classanimal/detail/1" class="card">
                         <div class="front" style="background-image: url('/animal_php/view/design/Explore/bosat.png');"></div>
                         <div class="back" style="background-image: url('/animal_php/view/design/Explore/bosat.png');">
-                            <h1 class="textexplore">Động vật bò sát</h1>
+                            <h1 class="textexplore">Động vật bò sátt</h1>
                         </div>
                     </a>
                 </div>

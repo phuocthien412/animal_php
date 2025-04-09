@@ -10,13 +10,13 @@
             justify-content: center;
             align-items: center;
             height: 100vh;
-            background-color: #f8f9fa;
+            background-color:rgb(125, 129, 133);
         }
         .login-container {
             width: 100%;
             max-width: 400px;
             padding: 20px;
-            background-color: #ffffff;
+            background-color:rgb(100, 94, 94);
             box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
             border-radius: 8px;
         }

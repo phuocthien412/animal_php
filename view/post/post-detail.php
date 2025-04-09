@@ -117,40 +117,43 @@ foreach ($comments as $key => $comment) {
 
     // Function to fetch and update comments
     function fetchComments() {
-        fetch(`/animal_php/view/post/fetch-comments.php?post_id=${postId}`)
-            .then(response => response.json())
-            .then(comments => {
-                const commentsWrapper = document.getElementById('commentsWrapper');
-                commentsWrapper.innerHTML = ''; // Clear existing comments
+    fetch(`/animal_php/view/post/fetch-comments.php?post_id=${postId}`)
+        .then(response => response.json())
+        .then(comments => {
+            const commentsWrapper = document.getElementById('commentsWrapper');
+            commentsWrapper.innerHTML = ''; // Clear existing comments
 
-                comments.forEach(comment => {
-                    const commentHtml = `
-                        <div class="contain" style="width:800px;">
-                            <div class="card" style="width: 90%;height:100%;margin-bottom:10px;border-radius:20px">
-                                <div class="d-flex justify-content-between p-2 px-3">
-                                    <div class="d-flex flex-row align-items-center">
-                                        <img src="/animal_php/view/design/Footer/nekoparalogo.png" class="rounded-circle"
-                                            style="height:75px;width:100px;">
-                                        <div class="d-flex flex-column ml-2"
-                                            style="margin-left:10px;margin-top:15px;">
-                                            <span class="font-weight-bold">${comment.username}</span>
-                                        </div>
-                                    </div>
-                                    <div class="d-flex flex-row mt-1 ellipsis">
-                                        <small class="mr-2" style="margin-top:10px">${comment.date_time}</small>
+            comments.forEach(comment => {
+                const commentHtml = `
+                    <div class="contain" style="width:800px;">
+                        <div class="card" style="width: 90%;height:100%;margin-bottom:10px;border-radius:20px">
+                            <div class="d-flex justify-content-between p-2 px-3">
+                                <div class="d-flex flex-row align-items-center">
+                                    <img src="/animal_php/view/design/Footer/nekoparalogo.png" class="rounded-circle"
+                                        style="height:75px;width:100px;">
+                                    <div class="d-flex flex-column ml-2"
+                                        style="margin-left:10px;margin-top:15px;">
+                                        <span class="font-weight-bold">${comment.username}</span>
                                     </div>
                                 </div>
-                                <div class="p-2" style="text-align:left;margin-left:70px">
-                                    <p class="text-justify">${comment.chat_data}</p>
+                                <div class="d-flex flex-row mt-1 ellipsis">
+                                    <small class="mr-2" style="margin-top:10px">${comment.date_time}</small>
                                 </div>
                             </div>
+                            <div class="p-2" style="text-align:left;margin-left:70px">
+                                <p class="text-justify">${comment.chat_data}</p>
+                            </div>
                         </div>
-                    `;
-                    commentsWrapper.innerHTML += commentHtml;
-                });
-            })
-            .catch(error => console.error('Error fetching comments:', error));
-    }
+                    </div>
+                `;
+                commentsWrapper.innerHTML += commentHtml;
+            });
+
+            // Scroll to the bottom of the comments section
+            commentsWrapper.scrollTop = commentsWrapper.scrollHeight;
+        })
+        .catch(error => console.error('Error fetching comments:', error));
+}
 
     // Fetch comments every 5 seconds
     setInterval(fetchComments, 500);
